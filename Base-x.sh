@@ -3,23 +3,8 @@ name=""
 password=""
 hostname=""
 # makes a partition 1 for /boot, and 2 for the rest
-echo "o
-n
-p
-1
-\n
-+300M
-n
-p
-2
-\n
-\n
-a
-1
-p
-w
-q
-" | sudo fdisk /dev/sda
+(echo o; echo n; echo p; echo 1; echo ""; echo +300M; echo n; echo p; echo 2; echo ""; echo ""; echo a; echo 1;echo p; echo w; echo q) | fdisk /dev/sda
+
 # for VMs, sda should be replaced with vda, in vim do :%s/sda/vda/g
 mkfs.ext4 -L ROOT /dev/sda2 
 mkfs.vfat -F32 /dev/sda1
