@@ -20,6 +20,14 @@ ntpd -qg
 rc-service ntpd start
 rc-update add ntpd default
 
+#pacamn tweaks
+pacman-key --init
+# pacman-key --populate archlinux
+# pacman-key --refresh-keys
+pacman -S sed
+sed -i 's/^#Color/Color/' /etc/pacman.conf
+sed -i '/^Color/a ParallelDownloads = 8' /etc/pacman.conf
+
 #necessery stuff
 basestrap /mnt base base-devel linux linux-firmware openrc elogind-openrc vim
 fstabgen -U /mnt >> /mnt/etc/fstab
@@ -35,13 +43,6 @@ LC_NAME=en_US.UTF-8
 LC_NUMERIC=en_US.UTF-8
 LC_TIME=en_US.UTF-8" > /etc/locale.conf
 
-#pacamn tweaks
-pacman-key --init
-# pacman-key --populate archlinux
-pacman-key --refresh-keys
-pacman -S sed
-sed -i 's/^#Color/Color/' /etc/pacman.conf
-sed -i '/^Color/a ParallelDownloads = 8' /etc/pacman.conf
 
 #install and configure boot loader
 pacman -S --needed grub efibootmgr
