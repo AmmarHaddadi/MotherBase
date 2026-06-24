@@ -13,9 +13,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
-  networking.hostName = "msf"; 
+  networking.hostName = "nik"; 
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -31,6 +31,7 @@
     isNormalUser = true;
     description = "Ammar";
     extraGroups = [ "networkmanager" "wheel" ]; 
+    hashedPassword = "$6G/aJp5H5PCs"; # abc
   };
 
   # List packages installed in system profile.
@@ -44,23 +45,23 @@
 
     # Go
     go
-    gopls
-    gotools
-    golangci-lint
+    # gopls
+    # gotools
+    # golangci-lint
 
     # JavaScript / TypeScript / Svelte
     bun
-    typescript
-    typescript-language-server
-    svelte-language-server
-    vscode-langservers-extracted # HTML, CSS, JSON, ESLint
+    # typescript
+    # typescript-language-server
+    # svelte-language-server
+    # vscode-langservers-extracted # HTML, CSS, JSON, ESLint
 
     # Nix development (highly recommended on NixOS)
-    nixd
-    nixfmt-rfc-style
+    # nixd
+    # nixfmt-rfc-style
 
     # General utilities
-    jq
+    # jq
     curl
     # ripgrep
     # fd
