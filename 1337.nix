@@ -11,6 +11,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  virtualisation.virtualbox.guest.enable = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages;
@@ -31,7 +32,7 @@
     isNormalUser = true;
     description = "Ammar";
     extraGroups = [ "networkmanager" "wheel" ]; 
-    hashedPassword = "$6G/aJp5H5PCs"; # abc
+    hashedPassword = "$6$EquYdKlLyCaVo.TD$qCGYIikaMcdW2W/zzjC1bd8iSZNQYZMck/lGVoZoUEZhiU8AIGPz4IWBl2zKJSQYwXWjWt6jaiIkYGQCmTU1F/"; # abc
   };
 
   # List packages installed in system profile.
